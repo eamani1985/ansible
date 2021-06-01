@@ -2,9 +2,7 @@
 - name: ternary test
   hosts: all
   become: yes
-  vars:
-    - enabled=true
   tasks:
     - name: Ternary test
       debug:
-        msg: "variable status is {{ enabled | ternary('restart', 'continue') }}"
+        msg: "variable status is {{ enabled | ternary('no shutdown', 'shutdown', omit) }}"

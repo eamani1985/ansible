@@ -1,0 +1,8 @@
+---
+- name: ternary test
+  hosts: all
+  become: yes
+  tasks:
+    - name: Ternary test
+      debug:
+        msg: "variable status is {{status}}"

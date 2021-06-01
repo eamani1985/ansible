@@ -7,9 +7,10 @@
       file:
         dest: "{{ item.path }}"
         state: touch
-        mode: "{{ item.mode | default(omit) }}"
+        mode: "{{ item.mode | default('0600') }}"
       loop:
         - path: /tmp/foo
+          mode: "0777"
         - path: /tmp/bar
         - path: /tmp/baz
           mode: "0444"

@@ -5,4 +5,4 @@
   tasks:
     - name: Ternary test
       debug:
-        msg: "variable status is {{(status=='needs_restart')|ternary('restart','continue',omit)}}"
+        msg: "variable status is {{ (status == 'needs_restart') | ternary('restart', 'continue') }}"

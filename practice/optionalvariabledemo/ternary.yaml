@@ -5,4 +5,4 @@
   tasks:
     - name: Ternary test
       debug:
-        msg: "variable status is {{ enabled | ternary('no shutdown', 'shutdown', omit) }}"
+        msg: "variable status is {{ status | ternary('no shutdown', 'shutdown', omit) }}"

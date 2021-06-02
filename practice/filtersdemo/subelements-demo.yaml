@@ -6,16 +6,30 @@
     users:
       - name: alice
         authorized:
-          - /tmp/foo
-          - /tmp/baz
+          - /tmp/alice/onekey.pub
+          - /tmp/alice/twokey.pub
+        mysql:
+            password: mysql-password
+            hosts:
+              - "%"
+              - "127.0.0.1"
+              - "::1"
+              - "localhost"
+            privs:
+              - "*.*:SELECT"
+              - "DB1.*:ALL"
         groups:
           - wheel
-          - docker
       - name: bob
         authorized:
-          - /tmp/what.yaml
-        groups:
-        - docker
+          - /tmp/bob/id_rsa.pub
+        mysql:
+            password: other-mysql-password
+            hosts:
+              - "db1"
+            privs:
+              - "*.*:SELECT"
+              - "DB2.*:ALL"
 
   tasks:
     - name: Set authorized ssh key, extracting just that data from 'users'

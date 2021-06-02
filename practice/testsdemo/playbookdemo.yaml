@@ -3,8 +3,6 @@
   hosts: all
   become: yes
   tasks:
-    - name: Retry a task until a certain condition is met
-      shell: ls
-      register: result
-    - debug:
-        var: result.stdout_lines
+    - name: Show facts available on the system
+      debug:
+      var: ansible_facts

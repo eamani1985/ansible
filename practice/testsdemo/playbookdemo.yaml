@@ -1,17 +1,17 @@
 ---
 - name: update web servers
-  remote_user: yes
   hosts: all
+  become: yes
   tasks:
     - name: update webserver
       apt:
         name: apache2
-        state: latest
         update_cache: yes
+        state: latest
 
 - name: update db servers
-  remote_user: yes
   hosts: dbserver
+  become: yes
   tasks:
     - name: postgresql installation
       apt: 

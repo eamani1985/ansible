@@ -3,7 +3,7 @@
   hosts: all
   become: yes
   vars:
-  url: "http://example.com/users/foo/resources/bar"
+    url: "http://example.com/users/foo/resources/bar"
 
   tasks: 
     - debug:

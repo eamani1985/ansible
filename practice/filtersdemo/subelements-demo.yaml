@@ -20,4 +20,4 @@
   tasks:
     - name: users modification
       debug:
-        msg: "{{ users | subelements('groups', skip_missing=True) }}"
+        msg: "{{ users }}"

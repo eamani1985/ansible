@@ -7,4 +7,4 @@
       shell: echo one
       register: result
     - debug:
-        msg: {{result.stdout}}
+        var: result.stdout_lines

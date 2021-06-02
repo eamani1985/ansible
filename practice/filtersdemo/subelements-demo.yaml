@@ -6,8 +6,8 @@
     users:
       - name: alice
         authorized:
-         - /tmp/alice/onekey.pub
-         - /tmp/alice/twokey.pub
+          - /tmp/alice/onekey.pub
+          - /tmp/alice/twokey.pub
         groups:
           - wheel
           - docker
@@ -18,9 +18,9 @@
         - docker
 
   tasks:
-     - name: Set a variable
-       set_fact:
+    - name: Set a variable
+      set_fact:
         myvar: "{{ {{ users | subelements('groups', skip_missing=True) }} }}"
-     - name: users modification
-       debug:
+    - name: users modification
+      debug:
         msg: "{{ myvar }}"

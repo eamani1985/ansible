@@ -18,7 +18,11 @@
         - docker
 
   tasks:
-    - name: Set a variable
-      set_fact:
-        myvar: "{{ {{ users | subelements('groups') }} }}"
+    - name: Set authorized ssh key, extracting just that data from 'users'
+      authorized_key:
+        user: "{{ item.0.name }}"
+        key: "{{ lookup('file', item.1) }}"
+      with_subelements:
+         - "{{ users }}"
+         - authorized
     

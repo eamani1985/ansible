@@ -4,8 +4,12 @@
   become: yes
   tasks:
   - name: Register JSON output as a variable
-    shell: cat ./ternary.yaml
+    shell: cat ternary.yaml
     register: result
+
+  - name: see what register has
+    debug:
+      msg: "{{register}}"
 
   - name: Set a variable
     set_fact:

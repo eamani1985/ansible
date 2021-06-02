@@ -6,14 +6,14 @@
     users:
       - name: alice
         authorized:
-          - /tmp/alice/onekey.pub
-          - /tmp/alice/twokey.pub
+          - /tmp/foo
+          - /tmp/baz
         groups:
           - wheel
           - docker
       - name: bob
         authorized:
-          - /tmp/bob/id_rsa.pub
+          - /tmp/bar
         groups:
         - docker
 

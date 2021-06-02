@@ -4,7 +4,7 @@
   become: yes
   vars:
     url: "http://example.com/users/foo/resources/bar"
-
+    variable: not encrypted
   tasks: 
     - debug:
         msg: "matched pattern 1"
@@ -21,3 +21,6 @@
     - debug:
         msg: "matched pattern 4"
       when: url is regex("example.com/\w+/foo")
+    
+    - debug:
+      msg: '{{ (variable is vault_encrypted) | ternary("Vault encrypted", "Not vault encrypted") }}'

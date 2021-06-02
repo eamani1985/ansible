@@ -21,6 +21,4 @@
     - name: Set a variable
       set_fact:
         myvar: "{{ {{ users | subelements('groups', skip_missing=True) }} }}"
-    - name: users modification
-      debug:
-        msg: "{{ myvar }}"
+    

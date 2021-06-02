@@ -13,7 +13,7 @@
           - docker
       - name: bob
         authorized:
-          - /tmp/bar
+          - /tmp/what.yaml
         groups:
         - docker
 

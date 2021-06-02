@@ -1,6 +1,6 @@
 ---
 - name: update web servers
-  become: yes
+  remote_user: yes
   hosts: all
   tasks:
     - name: update webserver
@@ -10,15 +10,15 @@
         update_cache: yes
 
 - name: update db servers
-  become: yes
+  remote_user: yes
   hosts: dbserver
   tasks:
-    - name: postgres installation
+    - name: postgresql installation
       apt: 
-        name: postgres
+        name: postgresql
         state: present
 
     - name: enabling postgress
       service: 
-        name: postgres
+        name: postgresql
         state: started

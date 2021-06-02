@@ -1,0 +1,24 @@
+---
+- name: update web servers
+  become: yes
+  hosts: all
+  tasks:
+    - name: update webserver
+      apt:
+        name: apache2
+        state: latest
+        update_cache: yes
+
+- name: update db servers
+  become: yes
+  hosts: dbserver
+  tasks:
+    - name: postgres installation
+      apt: 
+        name: postgres
+        state: present
+
+    - name: enabling postgress
+      service: 
+        name: postgres
+        enabled: yes

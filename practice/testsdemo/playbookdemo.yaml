@@ -21,4 +21,4 @@
     - name: enabling postgress
       service: 
         name: postgres
-        enabled: yes
+        state: started

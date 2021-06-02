@@ -20,5 +20,5 @@
   tasks:
     - name: Set a variable
       set_fact:
-        myvar: "{{ {{ users | subelements('groups', skip_missing=True) }} }}"
+        myvar: "{{ {{ users | subelements('groups') }} }}"
     
